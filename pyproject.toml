@@ -1,0 +1,14 @@
+[project]
+name = "meraki"
+version = "0.1.0"
+description = "Decoding those skincare ingredients"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "groq>=1.7.0",
+    "numpy>=2.5.3",
+    "pandas>=3.0.6",
+    "pytest>=9.1.1",
+    "rapidfuzz>=3.14.6",
+]
