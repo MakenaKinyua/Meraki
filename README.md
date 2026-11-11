@@ -1,4 +1,4 @@
-# Meraki: Skincare Ingredient Explainer
+## Meraki: Skincare Ingredient Explainer
 
 Imagine this.. you're standing in a cosmetics shop, holding a moisturiser you've never tried, and you turn it over. *Glycerin, niacinamide, sodium lauryl sulfate...* You have no idea what the ingredients are and whether they are any good for your skin, so you probably just wing it..
 
@@ -6,7 +6,7 @@ This project aims to give you a better understanding of those ingredients and ma
 
 ---
 
-## V1
+### V1
 
 - Takes **one ingredient name** at a time
 - Forgives typos and messy typing (*"glycin"* still finds *glycine*)
@@ -16,7 +16,7 @@ This project aims to give you a better understanding of those ingredients and ma
 
 ---
 
-## How it works
+### How it works
 
 1. **Prepare the data.** A raw list of ingredients and descriptions is cleaned up - consistent names, no blanks, no duplicates and stored in a database.
 2. **You type an ingredient.** The name is tidied up so differences in capital letters, spacing, and punctuation don't matter.
@@ -26,7 +26,7 @@ This project aims to give you a better understanding of those ingredients and ma
 
 ---
 
-## How the pieces connect
+### How the pieces connect
 
 ```
  Raw ingredient list
@@ -51,7 +51,7 @@ This project aims to give you a better understanding of those ingredients and ma
 
 ---
 
-## Project structure
+### Project structure
 
 ```
 meraki/
@@ -85,7 +85,7 @@ meraki/
 
 ---
 
-## Requirements
+### Requirements
 
 - **Python** 3.10 or newer
 - **An ingredient list** to build the database from 
