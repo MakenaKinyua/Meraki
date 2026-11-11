@@ -87,7 +87,65 @@ meraki/
 
 ### Requirements
 
-- **Python** 3.10 or newer
-- **An ingredient list** to build the database from 
-- **LLM API key**, for the AI that writes the explanations
-- **Python libraries**, which are listed in `pyproject.toml` and installed automatically: pandas (data cleaning), rapidfuzz (typo-tolerant matching), groq (AI connection), and python-dotenv (private settings)
+- **Python** 3.12+ with [uv](https://docs.astral.sh/uv/) to manage the backend
+- **Node.js** 18+ with [pnpm](https://pnpm.io/) to manage the frontend
+- **A Groq API key**, for the AI that writes the explanations
+- **An ingredient list** (`data/raw/ingredients.csv` with `ingredient` and `description` columns) to build the database from
+
+### How to run the app
+
+**1. Install packages.**
+
+Frontend (Vite/Vue) dependencies:
+
+```bash
+pnpm install --dir frontend
+```
+
+Backend (FastAPI) dependencies — `uv` creates a virtual environment from `backend/pyproject.toml`:
+
+```bash
+cd backend
+uv sync
+cd ..
+```
+
+**2. Set up environment variables.**
+
+Copy `.env.example` to `.env` in the repository root and fill in your Groq key:
+
+```bash
+cp .env.example .env
+```
+
+```env
+GROQ_API_KEY=your-key-here
+GROQ_MODEL=llama-3.3-70b-versatile
+```
+
+**3. Build the ingredient database.**
+
+The web app reads `data/ingredients.db`, which is built from your raw list in two steps:
+
+```bash
+uv run python -m src.db.preprocess   # cleans the raw list into data/processed/
+uv run python -m src.db.build        # builds data/ingredients.db
+```
+
+**4. Start both servers.**
+
+From the repository root:
+
+```bash
+pnpm dev
+```
+
+This runs the FastAPI API at `http://localhost:8000` (interactive docs at `/docs`) and the Vite dev server at the same time. Open `http://localhost:5173` and press Ctrl+C to stop both servers.
+
+Chat conversations are stored automatically in `data/chat.db` — no setup needed.
+
+**Optional:** use the terminal-only version instead of the web app:
+
+```bash
+uv run python -m src.btc.cli
+```
