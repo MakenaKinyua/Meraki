@@ -1,6 +1,11 @@
-# Python-generated files
+# Python caches and build output
 __pycache__/
-*.py[oc]
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
 build/
 dist/
 wheels/
@@ -8,9 +13,27 @@ wheels/
 
 # Virtual environments
 .venv
+venv/
+env/
+.tox/
+.nox/
 
-# envs
+# Local environment files and secrets
 .env
+.env.*
+!.env.example
 
-# folders
+# Local application data
 /data
+
+# JavaScript dependencies, caches, and logs
+node_modules/
+.vite/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

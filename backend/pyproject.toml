@@ -1,0 +1,18 @@
+[project]
+name = "meraki-api"
+version = "0.1.0"
+description = "FastAPI service for Meraki ingredient explanations"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.115",
+    "groq>=1.7.0",
+    "python-dotenv>=1.2.0",
+    "pandas>=3.0.0",
+    "rapidfuzz>=3.14.0",
+]
+
+[tool.fastapi]
+entrypoint = "main:app"
+
+[tool.uv]
+package = false
